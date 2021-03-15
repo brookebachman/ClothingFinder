@@ -5,8 +5,16 @@ import {
   FormHelperText,
   TextField,
   Button,
+  makeStyles,
+  Grid,
 } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import ClothingItem from "./ClothingItem";
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+  },
+});
 let axios = require("axios").default;
 
 const Home = () => {
@@ -45,7 +53,9 @@ const Home = () => {
       });
   };
 
-  const getClothingItems = () => {
+  const getClothingItems = (event) => {
+    event.preventDefault();
+    let value = event.target.value;
     let options = {
       method: "GET",
       url: "https://asos2.p.rapidapi.com/products/v2/list/",
@@ -76,27 +86,45 @@ const Home = () => {
         console.error(error);
       });
   };
+
+  const mapOverClothing = (results) => {
+    console.log(results.products, "map over results");
+    return results.products.map((item) => (
+      <ClothingItem key={item.id} item={item} />
+    ));
+  };
   return (
     <>
-      <InputLabel>Search for an item of clothing</InputLabel>
-      <FormControl>
-        <TextField
-          onChange={(event) => setItem(event.target.value)}
-          id="filled-basic"
-          variant="filled"
-          value={item}
-        />
-        <Button variant="outlined" color="primary" onClick={captureSearchTerm}>
-          Search
-        </Button>
+      <div id="form-body">
+        <h1>Search for an item of clothing</h1>
+        <FormControl>
+          <TextField
+            onChange={(event) => setItem(event.target.value)}
+            id="filled-basic"
+            variant="filled"
+            value={item}
+          />
+          <Button variant="filled" color="primary" onClick={getClothingItems}>
+            Search
+          </Button>
+        </FormControl>{" "}
+      </div>
+      <Grid container justify="space-evenly" spacing={4}>
+        {results.length !== 0 ? mapOverClothing(results) : null}
+      </Grid>
+    </>
+  );
+};
 
-        <FormHelperText id="my-helper-text"></FormHelperText>
+export default Home;
+
+/* <FormHelperText id="my-helper-text"></FormHelperText>
         {clothing !== [] ? (
           <>
             <Autocomplete
               id="combo-box-demo"
               options={clothing}
-              getOptionLabel={(option) => option.searchTerm}
+              getOptionLabel={(option) => (option ? option.searchTerm : "")}
               style={{ width: 300 }}
               renderInput={(params) => (
                 <TextField {...params} variant="outlined" />
@@ -107,17 +135,11 @@ const Home = () => {
               }}
             />
             <Button
-              onClick={getClothingItems}
+              onClick={}
               variant="outlined"
               color="primary"
             >
               Search
             </Button>
           </>
-        ) : null}
-      </FormControl>{" "}
-    </>
-  );
-};
-
-export default Home;
+        ) : null}*/

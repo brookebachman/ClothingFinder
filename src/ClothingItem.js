@@ -16,7 +16,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-const ClothingItem = () => {
+const ClothingItem = (props) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
@@ -82,7 +82,7 @@ const ClothingItem = () => {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <IconButton
+        {/* <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
           })}
@@ -91,7 +91,7 @@ const ClothingItem = () => {
           aria-label="show more"
         >
           <ExpandMoreIcon />
-        </IconButton>
+        </IconButton> */}
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
