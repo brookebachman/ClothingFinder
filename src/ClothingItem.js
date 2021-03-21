@@ -3,23 +3,23 @@ import { makeStyles } from "@material-ui/core/styles";
 import Image from "material-ui-image";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import AddIcon from "@material-ui/icons/Add";
 
 const ClothingItem = (props) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
+      borderRadius: "9px",
+      margin: "15px",
+      backgroundColor: "rgba(231, 202, 202, 1)",
+      textTransform: "Capitalize",
+      fontSize: "17px",
     },
     media: {
       height: 0,
@@ -66,18 +66,18 @@ const ClothingItem = (props) => {
       /> */}
 
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        {/* <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
           mussels, if you like.
-        </Typography>
+        </Typography> */}
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon>Add to your favorites</FavoriteIcon>
         </IconButton>
         <IconButton aria-label="share">
-          <ShareIcon />
+          <AddIcon>Add to your cart</AddIcon>
         </IconButton>
         {/* <IconButton
           className={clsx(classes.expand, {
@@ -90,7 +90,7 @@ const ClothingItem = (props) => {
           <ExpandMoreIcon />
         </IconButton> */}
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
@@ -120,7 +120,7 @@ const ClothingItem = (props) => {
             serve.
           </Typography>
         </CardContent>
-      </Collapse>
+      </Collapse> */}
     </Card>
   );
 };

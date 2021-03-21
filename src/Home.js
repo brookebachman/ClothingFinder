@@ -19,7 +19,6 @@ let axios = require("axios").default;
 
 const Home = () => {
   const [item, setItem] = useState("");
-  const [value, setValue] = useState("");
   const [clothing, setClothing] = useState([]);
   const [results, setResults] = useState([]);
 
@@ -53,9 +52,10 @@ const Home = () => {
       });
   };
 
-  const getClothingItems = (event) => {
+  const getClothingItems = async (event) => {
     event.preventDefault();
-    let value = event.target.value;
+    console.log(item, "something");
+    // let value = event.target.value;
     let options = {
       method: "GET",
       url: "https://asos2.p.rapidapi.com/products/v2/list/",
@@ -68,7 +68,7 @@ const Home = () => {
         currency: "USD",
         sort: "freshness",
         lang: "en-US",
-        q: value,
+        q: item,
         sizeSchema: "US",
       },
       headers: {
