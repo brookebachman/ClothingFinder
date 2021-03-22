@@ -1,7 +1,8 @@
 import "./App.css";
 import Home from "./Home";
 import NavBar from "./NavBar";
-import Grid from "@material-ui/core/Grid";
+import { Route } from "react-router-dom";
+
 function App() {
   return (
     <div className="App">

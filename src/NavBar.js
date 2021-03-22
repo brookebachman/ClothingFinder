@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  Grid,
-} from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Grid } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Link from "@material-ui/core/Link";
 
 const NavBar = () => {
   const useStyles = makeStyles({
@@ -28,17 +22,23 @@ const NavBar = () => {
         <Toolbar>
           <Grid container spacing={2}>
             <Grid item xs={2}>
-              <h1 id="title" variant="h6">
-                Retro Relics
-              </h1>
+              <Link href="search">
+                <h1 id="title" variant="h6">
+                  Retro Relics
+                </h1>
+              </Link>
             </Grid>
             <Grid item xs={8}></Grid>
             <Grid item xs={1}>
               <IconButton edge="start" color="inherit" aria-label="menu">
-                <MenuIcon fontSize="large" />
+                <Link href="/login">
+                  <MenuIcon fontSize="large"></MenuIcon>
+                </Link>
               </IconButton>
               <IconButton>
-                <ShoppingCartIcon fontSize="large" />
+                <Link href="/shoppingcart">
+                  <ShoppingCartIcon fontSize="large" />
+                </Link>
               </IconButton>
             </Grid>
           </Grid>
