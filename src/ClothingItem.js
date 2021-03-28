@@ -20,6 +20,7 @@ const ClothingItem = (props) => {
       backgroundColor: "rgba(231, 202, 202, 1)",
       textTransform: "Capitalize",
       fontSize: "17px",
+      width: "80%",
     },
     media: {
       height: 0,
@@ -37,6 +38,9 @@ const ClothingItem = (props) => {
     },
     avatar: {
       backgroundColor: red[500],
+    },
+    image: {
+      height: "900px",
     },
   }));
 
@@ -58,20 +62,9 @@ const ClothingItem = (props) => {
         }
         title={props.item.name}
       />
-      <Image src={`https://${props.item.imageUrl}`} />
-      {/* <CardMedia
-        className={classes.media}
-        image={props.item.imageUrl}
-        title="Paella dish"
-      /> */}
+      <Image src={`https://${props.item.imageUrl}`} className={classes.image} />
 
-      <CardContent>
-        {/* <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
-        </Typography> */}
-      </CardContent>
+      <CardContent></CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon>Add to your favorites</FavoriteIcon>

@@ -1,14 +1,25 @@
 import "./App.css";
 import Home from "./Home";
 import NavBar from "./NavBar";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <NavBar />
       <Home />
     </div>
+    // <BrowserRouter>
+    // <Switch>
+    // <div className="App">
+    //   <NavBar />
+    //   <Route exact path='/closet' render={(renderProps) => (
+    //     <Closet/>
+    //   )}/>
+    //   <Home />
+    // </div>
+    // </Switch>
+    // </BrowserRouter>
   );
 }
 
